@@ -16,40 +16,55 @@ export default function App() {
   var [age, setAge] = useState(0)
   return (
     <SafeAreaView style={styles.container}>
-    <View>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Welcome college="GBC" />
-      <Welcome college="Seneca" />
-      <Welcome college="York" />
-      <Button title='Click Me' 
-        color='#ff0000' 
-        onPress={() => openAlert()}/>
-        <Button title='Click again' 
-        color='#ff0000' 
-        onPress={() => Alert.alert('Show', "Thank you")}/>
+      <View>
+        <Text>Open up App.js to start working on your app!</Text>
+        <Welcome college="GBC" />
+        <Welcome college="Seneca" />
+        <Welcome college="York" />
+        {/* The styles prop is not available on the <Button /> component. You should consider wrapping the buttons in a div  */}
+        <View style={
+            {
+              marginHorizontal:20,
+              marginVertical:20,
+            }} >
+          <Button title='Click Me'
+            color='#ff0000' 
+            onPress={() => openAlert()}/>
+        </View>
 
-
+         <View style={
+            {
+              marginHorizontal:20,
+              marginVertical:20,
+            }} >
+          <Button title='Click again' 
+            style={{margin: 10}}
+            color='#ff0000' 
+            onPress={() => Alert.alert('Show', "Thank you")}/>
+        </View>
         <Image source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} />
-        
+          
         <TextInput style={styles.input}
           onChangeText={setName} 
           value={name} />
 
 
         <TextInput style={styles.input}
-        secureTextEntry={true}
+          secureTextEntry={true}
           onChangeText={setPwd} 
           value={pwd} />
-        
+          
         <TextInput style={styles.input}
           placeholder='Enter Your Age'
           keyboardType='numeric'
           onChangeText={setAge} 
           value={age} />
-          <Text>{`${name} ${pwd} ${age}`} </Text>
-        <StatusBar style="auto" />
         
-    </View>
+        <Text>{`${name} ${pwd} ${age}`} </Text>
+        
+        <StatusBar style="auto" />
+          
+      </View>
     </SafeAreaView>
   );
 }

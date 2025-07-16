@@ -9,6 +9,9 @@ export default function Welcome(props) {
 
 const styles = StyleSheet.create({
     content: {
-        backgroundColor: '#00f'
+        backgroundColor: '#00f',
+        margin: 10,
+        color: 'white',
+        fontSize: 20
     }
 })
